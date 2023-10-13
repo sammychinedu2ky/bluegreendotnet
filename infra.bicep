@@ -1,26 +1,28 @@
+param location string = resourceGroup().location
+
 resource myserverfarm 'Microsoft.Web/serverfarms@2022-09-01' = {
   name: 'samsons-serverfarm'
-  location: resourceGroup().location
+  location: location
   sku: {
-    tier: 'Basic'
-    name: 'B1'
+   tier: 'Standard'
+   name: 'S1'
   }
   kind: 'linux'
 }
 
 resource myserverfarmapp 'Microsoft.Web/sites@2022-09-01' = {
   name: 'swacbloom'
-  location: resourceGroup().location
+  location: location
   properties:{
     serverFarmId: myserverfarm.id
+  }
+  resource mystaging 'slots@2022-09-01' = {
+    name: 'staging'
+    location: location
+    properties:{
+      serverFarmId: myserverfarm.id
+    }
   }
 }
 
-resource mystaging 'Microsoft.Web/sites/slots@2022-09-01' = {
-  name: 'staging'
-  parent: myserverfarmapp
-  location: resourceGroup().location
-  properties:{
-    serverFarmId: myserverfarm.id
-  }
-}
+
