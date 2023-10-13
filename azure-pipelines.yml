@@ -22,6 +22,11 @@ steps:
   inputs:
     command: 'publish'
     publishWebProjects: true
-    arguments: '--configuration Release'
+    arguments: '--configuration Release --output publish'
 
-   
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'bluegreen'
+    publishLocation: 'Container'
