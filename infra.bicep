@@ -4,14 +4,13 @@ resource myserverfarm 'Microsoft.Web/serverfarms@2022-09-01' = {
   name: 'samsons-serverfarm'
   location: location
   sku: {
-   tier: 'Standard'
    name: 'S1'
   }
   kind: 'linux'
 }
 
 resource myserverfarmapp 'Microsoft.Web/sites@2022-09-01' = {
-  name: 'swacbloom'
+  name: 'swacblooms'
   location: location
   properties:{
     serverFarmId: myserverfarm.id
