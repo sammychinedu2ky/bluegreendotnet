@@ -17,10 +17,9 @@ app.MapGet("/calc/add/{a}/{b}", (int a, int b) => $"{a} + {b} = {Calc.Add(a, b)}
 app.Run();
 
 public static class  Calc {
-    public static int init = 0;
     public static int Add(int a, int b){
         
-        return a + b + init++;
+        return a + b;
     }
 }
 
