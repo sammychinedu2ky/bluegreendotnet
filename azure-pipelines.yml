@@ -19,7 +19,7 @@ steps:
   inputs:
     command: 'publish'
     publishWebProjects: true
-    arguments: '--configuration Release --output webapp bluegreen/bluegreen.csproj'
+    arguments: '--configuration Release --output webapp'
     modifyOutputPath: false
 
 - task: PublishBuildArtifacts@1
