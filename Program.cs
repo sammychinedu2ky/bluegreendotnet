@@ -12,7 +12,7 @@ var html = $"""
 </html>
 """;
 
-app.MapGet("/", () => html);
+app.MapGet("/", () => Results.Content(html));
 
 app.Run();
 
