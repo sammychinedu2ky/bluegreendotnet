@@ -10,7 +10,7 @@ resource myserverfarm 'Microsoft.Web/serverfarms@2022-09-01' = {
 }
 
 resource myserverfarmapp 'Microsoft.Web/sites@2022-09-01' = {
-  name: 'mvpswac1'
+  name: 'mvpbluegreen'
   location: location
   properties:{
     serverFarmId: myserverfarm.id
